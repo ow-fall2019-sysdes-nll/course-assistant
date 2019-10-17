@@ -1,0 +1,104 @@
+@startuml
+
+hide circle
+skinparam linetype ortho
+skinparam shadowing false
+skinparam monochrome true
+skinparam DefaultFontName Helvetica
+skinparam DefaultFontSize 12
+
+entity Users {
+    * userId: integer
+    email: varchar
+    password: varchar
+    firstName: varchar
+    lastName: varchar
+    type: registrar | student | faculty | researcher
+}
+
+entity Registrars {
+    * userId: integer
+}
+
+entity Students {
+    * userId: integer
+    isPartTime: boolean
+    isGraduate: boolean
+    isAlumnus: boolean
+}
+
+entity Facultys {
+    * userId: integer
+    isPartTime: boolean
+}
+
+entity Researchers {
+    * userId: integer
+}
+
+Users <|-- Registrars
+Users <|-- Students
+Users <|-- Facultys
+Users <|-- Researchers
+
+entity Holds {
+    * holdId: integer
+    type: academic | financial | health | desciplinary
+}
+
+entity StudentHasHold {
+    studentId: integer <<FK: Students.userId>>
+    holdId: integer
+}
+
+Students ||--o{ StudentHasHold
+Holds ||--o{ StudentHasHold
+
+entity FacultyAdvisesStudent {
+    facultyId: integer <<FK: Facultys.userId>>
+    studentId: integer <<FK: Students.userId>>
+}
+
+Facultys ||--o{ FacultyAdvisesStudent
+Students ||--|{ FacultyAdvisesStudent
+
+entity Reports {
+    * reportId: integer
+    authorId: integer <<FK: Researchers.userId>>
+}
+
+Reports }o--|| Researchers
+
+entity Courses {
+    * courseId: integer
+    title: varchar
+    description: varchar
+}
+
+entity Sections {
+    * sectionId: integer
+    courseId: integer  <<FK: Courses.courseId>>
+    facultyId: integer <<FK: Facultys.userId>>
+    timeslotId: integer  <<FK: TimeSlots.timeslotId>>
+    locationId: integer <<FK: Locations.locationId>>
+}
+
+entity TimeSlots  {
+    * timeslotId: integer
+    periodId: integer
+    semesterId: integer
+}
+
+entity Semesters {
+    * semesterId: integer
+    year: integer
+    season: winter | spring | summer | fall
+}
+
+entity Periods { 
+    * periodId: integer
+    days: Mon | Tues | Wed | Thurs | Fri | Sat 
+}
+
+
+@enduml
