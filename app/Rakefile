@@ -4,3 +4,16 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+namespace :plantuml do
+  desc "Inspect models"
+  task :print_all do
+    Rails.application.eager_load!
+    puts "Rails app loaded"
+    puts "ActiveRecord::Base.descendants"
+    print ActiveRecord::Base.descendants
+    puts "ApplicationRecord.descendants"
+    print ApplicationRecord.descendants
+
+  end
+end
