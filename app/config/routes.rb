@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :courses
   resources :holds
   devise_for :users
+  scope "/admin" do
+    resources :users
+  end
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :articles
