@@ -50,7 +50,7 @@ entity Reports {
 
 entity Holds {
     * holdId: integer
-    type: academic | financial | health | desciplinary
+    holdType: academic | financial | health | desciplinary
 }
 
 entity StudentHasHold {
