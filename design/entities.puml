@@ -5,7 +5,7 @@ skinparam linetype ortho
 skinparam shadowing false
 skinparam monochrome true
 skinparam DefaultFontName Helvetica
-skinparam DefaultFontSize 12
+skinparam DefaultFontSize 15
 
 entity Users {
     * userId: integer
@@ -16,30 +16,37 @@ entity Users {
     type: registrar | student | faculty | researcher
 }
 
-entity Registrars {
-    * userId: integer
-}
+together {
+    entity Registrars {
+        * userId: integer
+    }
 
-entity Students {
-    * userId: integer
-    isPartTime: boolean
-    isGraduate: boolean
-    isAlumnus: boolean
-}
+    entity Students {
+        * userId: integer
+        isPartTime: boolean
+        isGraduate: boolean
+        isAlumnus: boolean
+    }
 
-entity Facultys {
-    * userId: integer
-    isPartTime: boolean
-}
+    entity Facultys {
+        * userId: integer
+        isPartTime: boolean
+    }
 
-entity Researchers {
-    * userId: integer
+    entity Researchers {
+        * userId: integer
+    }
 }
 
 Users <|-- Registrars
 Users <|-- Students
 Users <|-- Facultys
 Users <|-- Researchers
+
+entity Reports {
+    * reportId: integer
+    authorId: integer <<FK: Researchers.userId>>
+}
 
 entity Holds {
     * holdId: integer
@@ -51,54 +58,166 @@ entity StudentHasHold {
     holdId: integer
 }
 
-Students ||--o{ StudentHasHold
-Holds ||--o{ StudentHasHold
-
 entity FacultyAdvisesStudent {
     facultyId: integer <<FK: Facultys.userId>>
     studentId: integer <<FK: Students.userId>>
 }
 
-Facultys ||--o{ FacultyAdvisesStudent
+together {
+
+    entity Departments {
+        * departmentId: integer
+        facultyId: integer <<FK: Facultys.facultyId>>
+        departmentChair: varchar
+    }
+
+    entity Majors {
+        * majorId: integer
+        departmentId: integer <<FK: Departments.departmentId>>
+        title: varchar
+    }
+
+    entity StudentHasMajor {
+        * majorId: integer <<FK:Majors.majorId>>
+        * userId: integer <<FK: Students.userId>>
+    }
+
+    entity Minors {
+        * minorId: integer
+        departmentId: integer <<FK: Departments.departmentId>>
+        title: varchar
+    }
+
+    entity StudentHasMinor {
+        * minorId: integer <<FK: Minors.minorId>>
+        * userId: integer <<FK: Students.userId>>
+    }
+
+}
+
+together {
+    entity Courses {
+        * courseId: integer
+        title: varchar
+        description: varchar
+    }
+
+    entity Prerequisites {
+        * courseId: integer <<FK: Courses.courseId>>
+        requirements: varchar
+    }
+}
+
+Prerequisites ||--|{ Courses
+Courses ||--o{ Prerequisites
+
+together {
+
+    entity Sections {
+        * sectionId: integer
+        courseId: integer  <<FK: Courses.courseId>>
+        facultyId: integer <<FK: Facultys.userId>>
+        timeslotId: integer  <<FK: TimeSlots.timeslotId>>
+        locationId: integer <<FK: Locations.locationId>>
+    }
+
+    together {
+        entity Locations {
+            * locationId: integer
+            buildingId: integer <<FK: Buildings.buildingId>>
+            roomId: integer <<FK: Rooms.roomId>>
+        }
+
+        entity Rooms {
+            * roomId: integer 
+            roomNumber: integer
+        }
+
+        entity Buildings {
+            * buildingId: integer
+            buildingName: varchar
+        }
+    }
+
+    together {
+        entity TimeSlots  {
+            * timeslotId: integer
+            periodId: integer
+            semesterId: integer
+        }
+
+        entity Semesters {
+            * semesterId: integer
+            year: integer
+            season: winter | spring | summer | fall
+        }
+
+        entity Periods { 
+            * periodId: integer
+            days: Mon | Tues | Wed | Thu | Fri | Sat 
+        }
+        
+    }
+}
+
+together {
+    entity Attends { 
+        * enrollmentId: integer <<FK: Enrollments.enrollmentId>>
+        * userId: integer <<FK: Students.userId>>
+    }
+
+    entity Enrollments {
+        * enrollmentId: integer
+        * sectionId: integer <<FK: Sections.sectionId>>
+        * userId: integer <<FK: Students.userId>>
+        grade: varchar 
+    }
+
+    entity StudentHistorys {
+        * userId: integer <<FK: Students.userId>>
+        * enrollmentId: integer <<FK: Enrollments.enrollmentId>>
+    }
+}
+
+
 Students ||--|{ FacultyAdvisesStudent
+Students ||--o{ StudentHasHold
+Students ||----|{ StudentHasMinor
+Students ||-----|{ StudentHasMajor
+Students ||---------------|{ StudentHistorys
+Students ||------|{ Attends
 
-entity Reports {
-    * reportId: integer
-    authorId: integer <<FK: Researchers.userId>>
-}
+StudentHasHold }o--|| Holds
 
-Reports }o--|| Researchers
+Facultys ||--o{ FacultyAdvisesStudent
+Facultys }|----|| Departments
 
-entity Courses {
-    * courseId: integer
-    title: varchar
-    description: varchar
-}
+Reports }o-|| Researchers 
 
-entity Sections {
-    * sectionId: integer
-    courseId: integer  <<FK: Courses.courseId>>
-    facultyId: integer <<FK: Facultys.userId>>
-    timeslotId: integer  <<FK: TimeSlots.timeslotId>>
-    locationId: integer <<FK: Locations.locationId>>
-}
+Departments ||--|{ Majors
+Departments ||---|{ Minors
+Departments ||--o{ Courses
+Departments ||------o{ Enrollments
 
-entity TimeSlots  {
-    * timeslotId: integer
-    periodId: integer
-    semesterId: integer
-}
+Minors ||---|{ StudentHasMinor
+Majors ||---|{ StudentHasMajor
 
-entity Semesters {
-    * semesterId: integer
-    year: integer
-    season: winter | spring | summer | fall
-}
+Courses ||---o{ Sections
 
-entity Periods { 
-    * periodId: integer
-    days: Mon | Tues | Wed | Thurs | Fri | Sat 
-}
+Sections }|--|| Locations
+Sections ||---o{ Enrollments
+Sections }|-----|| TimeSlots
+
+TimeSlots }o---|| Semesters
+TimeSlots }o---|| Periods
+
+Locations }|---|| Rooms
+Locations }|---|| Buildings
+
+StudentHistorys ||-|{ Enrollments
+Enrollments ||--|{ Attends 
+
+
 
 
 @enduml
