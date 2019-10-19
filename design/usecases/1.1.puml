@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to view academic calendar
+System -> Visitor: academic calendar data
+@enduml
