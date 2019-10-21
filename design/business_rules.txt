@@ -92,3 +92,24 @@ Always add new entry to the end of the proper section.
 	- 1 Major
 	- 1 Major and 1 Minor
 	- 2 Major
+5.13. Students can view requirements of their current degree track and their progress (degree audit)
+5.14. Students can view holds they have on their account
+5.15. Students can view their transcript
+	- A transcript has all courses finished by student, ordered and grouped by semester
+	- A transcript has all grades given to the student 	associated to the courses finished by the student
+	- A transcript has all grades transferred in by the student associated to the courses transferred
+	- A transcript has final grade of the student
+5.16. Student must have at least one advisor each
+5.17. Part-time students must take at least 1 course
+5.18. Part-time students must not take more than 2 courses
+5.19. Full-time students must take at least 3 courses
+5.20. Full-time students must not take more 5 courses
+5.21. Students cannot change the date of birth and SSN
+5.22. Students cannot take the same course more than 3 times
+5.23. Students cannot register before or after the registration period of the current sister
+5.24. Students cannot register for courses if prerequisites are not met
+5.25. Undergraduate students cannot register for graduate courses
+5.26. Students cannot register for courses if they have holds on their account
+5.27. Students cannot register for two sections within the same time slot
+5.28. Students cannot withdraw from courses before or after the withdraw period of the current semester
+5.29. Students cannot have more than 2 advisors
