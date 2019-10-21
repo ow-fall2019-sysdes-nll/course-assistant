@@ -16,3 +16,79 @@ Always add new entry to the end of the proper section.
 1.6. Visitors can search the master schedule of the current and next semester
 1.7. Visitors cannot log in
 1.8. Visitors cannot register for a new account
+
+2.   Researcher
+2.1. Researchers can view student grades
+2.2. Researchers can view enrolled students
+2.3. Researchers can view master schedule; past, current, and next
+2.4. Researchers can view Pass/Fail rate of courses
+2.5. Researchers can view the graduation rate of degree tracks
+2.6. Researchers cannot view the information of Students, Faculty, Registrar
+
+3.   Faculty
+3.1. Faculty can view all master schedules
+3.2. Faculty can be assigned as instructors of courses
+3.3. Faculty can be Full-time or Part-time
+3.4. Faculty can view the information of the class
+3.5. Faculty can view the transcripts of their advisees
+3.6. Faculty can give assign grades to students registered in their course
+3.7. Faculty can be assigned as advisors to students
+3.8. Part-Time Faculty must teach at least 1 course
+3.9. Part-Time Faculty cannot teach more than 2 courses
+3.10. Full-Time Faculty must teach at least 3 courses
+3.11. Full-time Faculty cannot teach more than 5 courses
+3.12. Faculty must not alter grades outside the time period 
+3.13. Faculty must not teach multiple courses within the same time slot
+ 
+4.   Registrar
+4.1. Administrators can update courses to the catalog of the current and next semester 	supplying the following
+	- Course ID
+	- Course Description
+	- Department
+	- Prerequisites
+4.2. Administrators can update sections to the master schedule supplying the following
+	- CRN
+	- Course ID
+	- Time Slot
+	- Instructor
+	- Location
+4.3. Administrators are responsible for applying holds onto user accounts
+	- Academic
+	- Financial
+	- Health
+	- Disciplinary
+4.4. Administrators can withdraw students from sections
+4.5. Administrators can add and remove holds from students account
+4.6. Administrators can view all students with holds
+4.7. Administrators can accept grades from faculty
+4.8. Administrators cannot change grades of students
+4.9. Administrators cannot remove sections from the master schedule in the past
+4.10. Administrators cannot create multiple courses at the same location and time
+
+5.   Students
+5.1. Students can do whatever visitors can do
+5.2. Students must have the following personal information
+	- Name
+	- School Email
+5.3. Students must have on and only one of the following diploma types
+	- Graduate
+	- Undergraduate
+5.4. Undergraduate students can register for undergraduate courses
+5.5. Graduate students can register for graduate courses
+5.6. Students can view the master schedule of the current and next semester
+5.7. Students can search courses in a schedule by
+	- Semester (current/next)
+	- Department name
+	- Instructor name
+	- Course name
+	- Weekday
+	- Time slot
+5.8. Students can make personal catalogs from a list of courses
+5.9. Students can view, search, in, and delete personal catalog
+5.10. Students can make draft personal schedules from a list of sections
+5.11. Students can register for course sections within the registration period of the 	 current semester
+5.12. Student can have one of the following degree track
+	- Undecided
+	- 1 Major
+	- 1 Major and 1 Minor
+	- 2 Major
