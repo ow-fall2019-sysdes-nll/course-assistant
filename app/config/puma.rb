@@ -37,13 +37,4 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
-# auto start ngrok tunnel for dev
-if Rails.env.development?
-  require 'ngrok/tunnel'
-  options = {   addr: ENV.fetch("PORT") { 3000 },
-                config: File.join(ENV['HOME'],'.ngrok2','ngrok.yml')
-            }
-  options[:subdomain] = ENV['NGROK_SUBDOMAIN'] if ENV['NGROK_SUBDOMAIN']
-  puts "[NGROK] tunneling at " + Ngrok::Tunnel.start(options)
-end
 
