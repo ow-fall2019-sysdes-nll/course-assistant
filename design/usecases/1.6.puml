@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to search the master schedule of the current and next semester
+System -> Visitor: Master schedule of the current and next semester data
+@enduml

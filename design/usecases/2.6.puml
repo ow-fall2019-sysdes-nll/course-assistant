@@ -1,0 +1,5 @@
+@startuml
+actor Researcher
+Researcher -> System: Request to view information of student, faculty and registrar
+System -> Researcher: Researcher does not have access to student, faculty and registrar information
+@enduml

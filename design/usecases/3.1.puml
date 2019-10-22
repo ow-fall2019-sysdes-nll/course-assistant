@@ -1,0 +1,5 @@
+@startuml
+actor Faculty
+Faculty -> System: Request to view all master schedules
+System -> Faculty: Master schedules data
+@enduml

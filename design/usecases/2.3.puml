@@ -1,0 +1,5 @@
+@startuml
+actor Researcher
+Researcher -> System: Request to view past, current and next semester's master schedule
+System -> Researcher: Master schedule filtered according to past, current and next semester
+@enduml

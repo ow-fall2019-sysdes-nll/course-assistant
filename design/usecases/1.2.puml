@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to view course catalog
+System -> Visitor: course catalog data
+@enduml

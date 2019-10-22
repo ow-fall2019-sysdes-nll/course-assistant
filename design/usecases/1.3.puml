@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to view and search in master catalog
+System -> Visitor: Master catalog data
+@enduml

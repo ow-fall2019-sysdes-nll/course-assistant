@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to log in 
+System -> Visitor: Access denied
+@enduml

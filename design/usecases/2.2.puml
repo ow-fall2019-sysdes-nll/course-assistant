@@ -1,0 +1,5 @@
+@startuml
+actor Researcher
+Researcher -> System: Request to view enrolled students
+System -> Researcher: Enrolled student data
+@enduml

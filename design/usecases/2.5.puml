@@ -1,0 +1,5 @@
+@startuml
+actor Researcher
+Researcher -> System: Request to view graduation rate of degree tracks
+System -> Researcher: Graducation rate of degree tracks data
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+actor Researcher
+Researcher -> System: Request to view pass and fail rate of courses
+System -> Researcher: Pass and fail rate of courses data
+@enduml

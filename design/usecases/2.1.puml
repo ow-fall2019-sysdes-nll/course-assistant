@@ -1,0 +1,5 @@
+@startuml
+actor Researcher
+Researcher -> System: Request to view student grade
+System -> Researcher: Student grade data
+@enduml

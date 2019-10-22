@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to search courses in a catalog by academic year, department name, instructor name, course name
+System -> Visitor: Courses filtered according to academic year, department name, instructor name, course name
+@enduml

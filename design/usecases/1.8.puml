@@ -1,0 +1,5 @@
+@startuml
+actor Visitor
+Visitor -> System: Request to register for a new account
+System -> Visitor: Visitors are not able to register
+@enduml
