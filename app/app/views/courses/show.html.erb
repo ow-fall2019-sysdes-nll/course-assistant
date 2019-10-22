@@ -10,5 +10,16 @@
   <%= @course.description %>
 </p>
 
+<p>
+  <strong>Sections:</strong>
+  <ul>
+  <% @course.sections.each do |sec| %>
+  <li>
+  <%= sec.timeslot %>
+  </li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
