@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Use devise to handle authentication
 gem 'devise'
+# Use pundit to handle authorization
+gem "pundit"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -34,6 +36,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # ngrok tunnel
+  gem 'ngrok-tunnel'
 end
 
 group :development do
@@ -44,7 +48,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Generate PlantUML diagram from models
-  gem 'rails-plantuml-generator', git: 'https://github.com/HappyKadaver/rails-plantuml-generator'
+  # gem 'rails-plantuml-generator', git: 'https://github.com/HappyKadaver/rails-plantuml-generator'
   # Solargraph Ruby language server
   gem 'solargraph'
 end
