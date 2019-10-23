@@ -12,17 +12,32 @@ namespace :plantuml do
     puts "Rails app loaded"
     File::open "diagramm.puml", "w" do |f|
       f.puts "@startuml"
+      f.puts ""
       f.puts "hide circle"
       f.puts "skinparam linetype ortho"
       f.puts "skinparam shadowing false"
       f.puts "skinparam monochrome true"
       f.puts "skinparam DefaultFontName Helvetica"
       f.puts "skinparam DefaultFontSize 15"
+      f.puts ""
       ApplicationRecord.descendants.each do |c|
         f.puts "entity #{c} {"
         f.puts c.column_names
         f.puts "}"
       end
+      f.puts ""
+      ApplicationRecord.descendants.each do |c|
+        c.reflect_on_all_associations(:has_one).each do |a|
+          f.puts "#{c} ||--|| #{a.klass.name}"
+        end
+        # c.reflect_on_all_associations(:belongs_to).each do |a|
+        #   f.puts "#{c} }o--|| #{a.klass.name}"
+        # end
+        c.reflect_on_all_associations(:has_many).each do |a|
+          f.puts "#{c} ||--o{ #{a.klass.name}"
+        end
+      end
+      f.puts ""
       f.puts "@enduml"
     end
 

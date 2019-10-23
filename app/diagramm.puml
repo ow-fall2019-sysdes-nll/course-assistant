@@ -1,10 +1,12 @@
 @startuml
+
 hide circle
 skinparam linetype ortho
 skinparam shadowing false
 skinparam monochrome true
 skinparam DefaultFontName Helvetica
 skinparam DefaultFontSize 15
+
 entity User {
 id
 created_at
@@ -47,13 +49,6 @@ name
 created_at
 updated_at
 }
-entity Article {
-id
-title
-text
-created_at
-updated_at
-}
 entity Section {
 id
 course_id
@@ -76,4 +71,7 @@ holdType
 created_at
 updated_at
 }
+
+Course ||--o{ Section
+
 @enduml
