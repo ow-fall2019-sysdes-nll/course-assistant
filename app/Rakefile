@@ -2,8 +2,29 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require_relative 'config/application'
+require 'csv'
+require 'hexapdf'
 
 Rails.application.load_tasks
+
+namespace :db do
+  desc "Generate seed from csv"
+  task :gen_seed do
+    Dir.glob("db/fixtures/*.csv") do |filename|
+      puts "Generating from #{filename}"
+      basename = File.basename(filename, ".*")
+      class_name = basename.singularize.capitalize
+      SeedFu::Writer.write("db/fixtures/#{basename}.rb", class_name: class_name) do |writer|
+        CSV.foreach(filename, headers: true) do |row|
+          writer.add(row.to_hash)
+        end
+      end
+    end
+  end
+  desc "Generate csv from pdf catalog"
+  task :gen_csv do
+  end
+end
 
 namespace :plantuml do
   desc "Inspect models"

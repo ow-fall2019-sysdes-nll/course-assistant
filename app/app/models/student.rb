@@ -1,3 +1,3 @@
 class Student < ApplicationRecord
-  self.primary_key = 'user_id'
+  has_one :user
 end
