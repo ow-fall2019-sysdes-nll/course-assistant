@@ -1,2 +1,3 @@
-class Student < User
+class Student < ApplicationRecord
+  self.primary_key = 'user_id'
 end

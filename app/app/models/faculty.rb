@@ -1,2 +1,2 @@
-class Faculty < User
+class Faculty < ApplicationRecord
 end
