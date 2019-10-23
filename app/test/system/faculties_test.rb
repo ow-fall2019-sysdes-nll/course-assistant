@@ -14,6 +14,8 @@ class FacultiesTest < ApplicationSystemTestCase
     visit faculties_url
     click_on "New Faculty"
 
+    fill_in "Departments", with: @faculty.departments_id
+    check "Is part time" if @faculty.is_part_time
     click_on "Create Faculty"
 
     assert_text "Faculty was successfully created"
@@ -24,6 +26,8 @@ class FacultiesTest < ApplicationSystemTestCase
     visit faculties_url
     click_on "Edit", match: :first
 
+    fill_in "Departments", with: @faculty.departments_id
+    check "Is part time" if @faculty.is_part_time
     click_on "Update Faculty"
 
     assert_text "Faculty was successfully updated"

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  resources :faculties
   resources :schools
   resources :departments
-  resources :faculties
   resources :students
   resources :sections
   resources :courses

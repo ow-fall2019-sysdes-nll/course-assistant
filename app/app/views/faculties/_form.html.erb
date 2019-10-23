@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :is_part_time %>
+    <%= form.check_box :is_part_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :departments_id %>
+    <%= form.text_field :departments_id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

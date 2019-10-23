@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Is part time</th>
+      <th>Departments</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +14,8 @@
   <tbody>
     <% @faculties.each do |faculty| %>
       <tr>
+        <td><%= faculty.is_part_time %></td>
+        <td><%= faculty.departments_id %></td>
         <td><%= link_to 'Show', faculty %></td>
         <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
         <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>

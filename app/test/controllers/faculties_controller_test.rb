@@ -17,7 +17,7 @@ class FacultiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create faculty" do
     assert_difference('Faculty.count') do
-      post faculties_url, params: { faculty: {  } }
+      post faculties_url, params: { faculty: { departments_id: @faculty.departments_id, is_part_time: @faculty.is_part_time } }
     end
 
     assert_redirected_to faculty_url(Faculty.last)
@@ -34,7 +34,7 @@ class FacultiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update faculty" do
-    patch faculty_url(@faculty), params: { faculty: {  } }
+    patch faculty_url(@faculty), params: { faculty: { departments_id: @faculty.departments_id, is_part_time: @faculty.is_part_time } }
     assert_redirected_to faculty_url(@faculty)
   end
 

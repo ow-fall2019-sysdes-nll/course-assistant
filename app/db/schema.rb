@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_081600) do
+ActiveRecord::Schema.define(version: 2019_10_23_092850) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2019_10_23_081600) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "school_id"
     t.index ["school_id"], name: "index_departments_on_school_id"
+  end
+
+  create_table "faculties", force: :cascade do |t|
+    t.boolean "is_part_time"
+    t.integer "departments_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["departments_id"], name: "index_faculties_on_departments_id"
   end
 
   create_table "holds", force: :cascade do |t|
@@ -53,14 +61,11 @@ ActiveRecord::Schema.define(version: 2019_10_23_081600) do
     t.index ["course_id"], name: "index_sections_on_course_id"
   end
 
-  create_table "students", id: false, force: :cascade do |t|
+  create_table "students", force: :cascade do |t|
     t.boolean "is_part_time"
     t.boolean "is_graduate"
-    t.boolean "is_alumnum"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_students_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,6 +84,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_081600) do
 
   add_foreign_key "courses", "departments"
   add_foreign_key "departments", "schools"
+  add_foreign_key "faculties", "departments", column: "departments_id"
+  add_foreign_key "faculties", "users", column: "id"
   add_foreign_key "sections", "courses"
-  add_foreign_key "students", "users"
+  add_foreign_key "students", "users", column: "id"
 end

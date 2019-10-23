@@ -19,35 +19,26 @@ remember_created_at
 first_name
 last_name
 }
-entity Faculty {
-id
-created_at
-updated_at
-email
-encrypted_password
-reset_password_token
-reset_password_sent_at
-remember_created_at
-first_name
-last_name
-}
-entity Student {
-id
-created_at
-updated_at
-email
-encrypted_password
-reset_password_token
-reset_password_sent_at
-remember_created_at
-first_name
-last_name
-}
 entity Department {
 id
 name
 created_at
 updated_at
+school_id
+}
+entity Faculty {
+id
+is_part_time
+departments_id
+created_at
+updated_at
+}
+entity Student {
+is_part_time
+is_graduate
+created_at
+updated_at
+id
 }
 entity Section {
 id
@@ -64,6 +55,7 @@ title
 description
 created_at
 updated_at
+department_id
 }
 entity Hold {
 id
@@ -71,7 +63,19 @@ hold_type
 created_at
 updated_at
 }
+entity School {
+id
+dean
+assistant_dean
+created_at
+updated_at
+name
+}
 
+User ||--|| Student
+User ||--|| Faculty
+Department ||--o{ Course
 Course ||--o{ Section
+School ||--o{ Department
 
 @enduml
