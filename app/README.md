@@ -27,3 +27,9 @@ This application is a course registration system and assistant written in Ruby o
     ```shell
     rails server
     ```
+
+## Generate UML diagram from models
+
+```shell
+rake plantuml:print_all
+```
