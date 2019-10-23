@@ -1,24 +1,29 @@
-# README
+# Course Registration System and Assistant
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is a course registration system and assistant written in Ruby on Rails for System Design course.
 
-Things you may want to cover:
+## Authors
 
-* Ruby version
+- Yufan
+- Hussain
+- Jason
 
-* System dependencies
+## Run the server
 
-* Configuration
+1. Install dependencies with
 
-* Database creation
+    ```shell
+    bundle
+    ```
 
-* Database initialization
+2. Run database migrations with
 
-* How to run the test suite
+    ```shell
+    rails db:migrate
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Run the server with
 
-* Deployment instructions
-
-* ...
+    ```shell
+    rails server
+    ```
