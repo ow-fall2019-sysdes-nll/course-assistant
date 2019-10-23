@@ -1,3 +1,79 @@
 @startuml
-
+hide circle
+skinparam linetype ortho
+skinparam shadowing false
+skinparam monochrome true
+skinparam DefaultFontName Helvetica
+skinparam DefaultFontSize 15
+entity User {
+id
+created_at
+updated_at
+email
+encrypted_password
+reset_password_token
+reset_password_sent_at
+remember_created_at
+first_name
+last_name
+}
+entity Faculty {
+id
+created_at
+updated_at
+email
+encrypted_password
+reset_password_token
+reset_password_sent_at
+remember_created_at
+first_name
+last_name
+}
+entity Student {
+id
+created_at
+updated_at
+email
+encrypted_password
+reset_password_token
+reset_password_sent_at
+remember_created_at
+first_name
+last_name
+}
+entity Department {
+id
+name
+created_at
+updated_at
+}
+entity Article {
+id
+title
+text
+created_at
+updated_at
+}
+entity Section {
+id
+course_id
+faculty
+timeslot
+location
+created_at
+updated_at
+}
+entity Course {
+id
+title
+description
+created_at
+updated_at
+}
+entity Hold {
+id
+holdType
+created_at
+updated_at
+}
 @enduml

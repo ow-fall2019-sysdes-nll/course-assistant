@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :departments
   resources :faculties
   resources :students
   resources :sections
@@ -10,6 +11,5 @@ Rails.application.routes.draw do
   end
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :articles
   root 'welcome#index'
 end

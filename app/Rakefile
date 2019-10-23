@@ -8,12 +8,23 @@ Rails.application.load_tasks
 namespace :plantuml do
   desc "Inspect models"
   task :print_all do
-    Rails.application.eager_load!
+    Zeitwerk::Loader.eager_load_all
     puts "Rails app loaded"
-    puts "ActiveRecord::Base.descendants"
-    print ActiveRecord::Base.descendants
-    puts "ApplicationRecord.descendants"
-    print ApplicationRecord.descendants
+    File::open "diagramm.puml", "w" do |f|
+      f.puts "@startuml"
+      f.puts "hide circle"
+      f.puts "skinparam linetype ortho"
+      f.puts "skinparam shadowing false"
+      f.puts "skinparam monochrome true"
+      f.puts "skinparam DefaultFontName Helvetica"
+      f.puts "skinparam DefaultFontSize 15"
+      ApplicationRecord.descendants.each do |c|
+        f.puts "entity #{c} {"
+        f.puts c.column_names
+        f.puts "}"
+      end
+      f.puts "@enduml"
+    end
 
   end
 end
