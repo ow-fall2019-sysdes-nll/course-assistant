@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_073111) do
+ActiveRecord::Schema.define(version: 2019_10_23_074541) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 2019_10_23_073111) do
 
   create_table "holds", force: :cascade do |t|
     t.string "hold_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "dean"
+    t.string "assistant_dean"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
