@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_074541) do
+ActiveRecord::Schema.define(version: 2019_10_23_081600) do
 
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "department_id"
+    t.index ["department_id"], name: "index_courses_on_department_id"
   end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "school_id"
+    t.index ["school_id"], name: "index_departments_on_school_id"
   end
 
   create_table "holds", force: :cascade do |t|
@@ -36,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_10_23_074541) do
     t.string "assistant_dean"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -72,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_074541) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "departments"
+  add_foreign_key "departments", "schools"
   add_foreign_key "sections", "courses"
   add_foreign_key "students", "users"
 end
