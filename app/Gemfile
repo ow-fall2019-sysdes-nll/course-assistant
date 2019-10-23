@@ -53,6 +53,8 @@ group :development do
   # gem 'rails-plantuml-generator', git: 'https://github.com/HappyKadaver/rails-plantuml-generator'
   # Solargraph Ruby language server
   gem 'solargraph'
+  # Parse pdf for seed data
+  gem 'hexapdf'
 end
 
 group :test do

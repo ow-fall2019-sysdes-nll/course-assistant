@@ -23,6 +23,7 @@ namespace :db do
   end
   desc "Generate csv from pdf catalog"
   task :gen_csv do
+
   end
 end
 
