@@ -67,7 +67,7 @@ updated_at
 }
 entity Hold {
 id
-holdType
+hold_type
 created_at
 updated_at
 }

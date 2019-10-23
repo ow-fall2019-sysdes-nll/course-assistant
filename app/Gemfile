@@ -25,7 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use devise to handle authentication
 gem 'devise'
 # Use pundit to handle authorization
-gem "pundit"
+gem 'pundit'
+# Use seed-fu to seed initial data into db
+gem 'seed-fu'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -17,7 +17,7 @@ class HoldsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create hold" do
     assert_difference('Hold.count') do
-      post holds_url, params: { hold: { holdType: @hold.holdType } }
+      post holds_url, params: { hold: { hold_type: @hold.hold_type } }
     end
 
     assert_redirected_to hold_url(Hold.last)
@@ -34,7 +34,7 @@ class HoldsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update hold" do
-    patch hold_url(@hold), params: { hold: { holdType: @hold.holdType } }
+    patch hold_url(@hold), params: { hold: { hold_type: @hold.hold_type } }
     assert_redirected_to hold_url(@hold)
   end
 

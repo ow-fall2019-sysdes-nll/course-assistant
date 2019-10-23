@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  holdType: MyString
+  hold_type: MyString
 
 two:
-  holdType: MyString
+  hold_type: MyString

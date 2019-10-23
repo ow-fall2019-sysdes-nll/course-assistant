@@ -13,7 +13,7 @@
   <tbody>
     <% @holds.each do |hold| %>
       <tr>
-        <td><%= hold.holdType %></td>
+        <td><%= hold.hold_type %></td>
         <td><%= link_to 'Show', hold %></td>
         <td><%= link_to 'Edit', edit_hold_path(hold) %></td>
         <td><%= link_to 'Destroy', hold, method: :delete, data: { confirm: 'Are you sure?' } %></td>

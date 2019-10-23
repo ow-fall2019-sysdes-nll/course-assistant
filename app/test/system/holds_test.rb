@@ -14,7 +14,7 @@ class HoldsTest < ApplicationSystemTestCase
     visit holds_url
     click_on "New Hold"
 
-    fill_in "Holdtype", with: @hold.holdType
+    fill_in "Holdtype", with: @hold.hold_type
     click_on "Create Hold"
 
     assert_text "Hold was successfully created"
@@ -25,7 +25,7 @@ class HoldsTest < ApplicationSystemTestCase
     visit holds_url
     click_on "Edit", match: :first
 
-    fill_in "Holdtype", with: @hold.holdType
+    fill_in "Holdtype", with: @hold.hold_type
     click_on "Update Hold"
 
     assert_text "Hold was successfully updated"
