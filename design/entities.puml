@@ -115,10 +115,17 @@ together {
 
     entity Sections {
         * sectionId: integer
+        semesterId: integer <<FK: Semesters.semesterId>>
         courseId: integer  <<FK: Courses.courseId>>
         facultyId: integer <<FK: Facultys.userId>>
         timeslotId: integer  <<FK: TimeSlots.timeslotId>>
         locationId: integer <<FK: Locations.locationId>>
+    }
+
+    entity Enrollments {
+        * sectionId: integer <<FK: Sections.sectionId>>
+        * studentId: integer <<FK: Students.userId>>
+        grade: varchar
     }
 
     together {
@@ -143,7 +150,6 @@ together {
         entity TimeSlots  {
             * timeslotId: integer
             periodId: integer
-            semesterId: integer
         }
 
         entity Semesters {
@@ -152,40 +158,71 @@ together {
             season: winter | spring | summer | fall
         }
 
-        entity Periods { 
+        entity Periods {
             * periodId: integer
-            days: Mon | Tues | Wed | Thu | Fri | Sat 
+            days: Mon | Tues | Wed | Thu | Fri | Sat
+            startTime: varchar
+            endTime: varchar
         }
         
     }
 }
 
 together {
-    entity Attends { 
-        * enrollmentId: integer <<FK: Enrollments.enrollmentId>>
-        * userId: integer <<FK: Students.userId>>
+     entity Sessions {
+        * sessionId: integer
+        sectionId: integer <<FK: Sections.sessionId>>
+        hostedAt: datetime
     }
 
-    entity Enrollments {
-        * enrollmentId: integer
-        * sectionId: integer <<FK: Sections.sectionId>>
-        * userId: integer <<FK: Students.userId>>
-        grade: varchar 
-    }
-
-    entity StudentHistorys {
-        * userId: integer <<FK: Students.userId>>
+    entity StudentAttendsSession { 
         * enrollmentId: integer <<FK: Enrollments.enrollmentId>>
+        * studentId: integer <<FK: Students.userId>>
+        status: varchar
     }
 }
 
+together {
+
+    entity Prerequisites {
+        * prereqId: integer
+    }
+
+    entity CourseHasPrereq {
+        * prereqId: integer
+        * courseId: integer <<FK: Courses.courseId>>
+    }
+
+    entity PrereqGroupInPrerequisite {
+        * groupId: integer
+        * prereqId: integer <<FK: AndPrerequisites.prereqId>>
+    }
+
+    entity PrereqGroups {
+        * groupId: Integer
+    }
+
+    entity CourseInPrereqGroup {
+        * groupId: integer <<FK: PrereqGroup.orId>>
+        * courseId: integer <<FK: Courses.courseId>>
+    }
+}
+
+Prerequisites ||--o{ CourseHasPrereq
+Courses ||--o{ CourseHasPrereq
+PrereqGroups ||-o{ PrereqGroupInPrerequisite
+Prerequisites ||--o{ PrereqGroupInPrerequisite
+Courses ||--o{ CourseInPrereqGroup
+PrereqGroups ||--o{ CourseInPrereqGroup
 
 Students ||--|{ FacultyAdvisesStudent
 Students ||--o{ StudentHasHold
 Students ||----|{ StudentHasMinor
 Students ||-----|{ StudentHasMajor
-Students ||---------------|{ StudentHistorys
-Students ||------|{ Attends
+Students ||------|{ StudentAttendsSession
+
+Sessions }o--|| Sections
+Sessions ||--o{ StudentAttendsSession
 
 StudentHasHold }o--|| Holds
 
@@ -196,13 +233,13 @@ Reports }o-|| Researchers
 
 Departments ||--|{ Majors
 Departments ||---|{ Minors
-Departments ||--o{ Courses
+Departments ||------o{ Courses
 Departments ||------o{ Enrollments
 
 Minors ||---|{ StudentHasMinor
 Majors ||---|{ StudentHasMajor
 
-Courses ||---o{ Sections
+Courses ||-o{ Sections
 
 Sections }|--|| Locations
 Sections ||---o{ Enrollments
@@ -211,11 +248,9 @@ Sections }|-----|| TimeSlots
 TimeSlots }o---|| Semesters
 TimeSlots }o---|| Periods
 
-Locations }|---|| Rooms
-Locations }|---|| Buildings
-
-StudentHistorys ||-|{ Enrollments
-Enrollments ||--|{ Attends 
+Locations }|--|| Rooms
+Locations }|--|| Buildings
+ 
 
 
 
