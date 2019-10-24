@@ -55,6 +55,8 @@ group :development do
   gem 'solargraph'
   # Parse pdf for seed data
   gem 'hexapdf'
+  # Generate seed data from csv
+  gem 'smarter_csv'
 end
 
 group :test do
