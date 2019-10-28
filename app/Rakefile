@@ -3,7 +3,6 @@
 
 require_relative 'config/application'
 require 'smarter_csv'
-require 'hexapdf'
 
 Rails.application.load_tasks
 
@@ -30,6 +29,35 @@ namespace :db do
         end
       end
     end
+  end
+
+  desc "Prepare data from section table from connect"
+  task :prep_section do
+    table = CSV.table("../design/cs_sections.txt", col_sep: "\t")
+    table.delete(:select, :cmp, :title, :cred)
+    table.by_row!
+    idx_rows_to_fix = []
+    table.each_with_index do |row, idx|
+      row.each do |header, field|
+        case header
+        when :crn, :subj, :crse, :cap, :act, :rem
+          if field.respond_to?(:empty?) and field.strip.empty?
+            idx_rows_to_fix << idx
+            break
+          end
+        end
+      end
+    end
+    # idx_rows_to_fix.each do |idx|
+    #   row_to_fix = table[idx]
+    #   ref = table[idx-1]
+    #   [:crn, :subj, :crse, :cap, :act, :rem].each do |header|
+    #     row_to_fix[header] = ref[header]
+    #   end
+    #   table[idx] = row_to_fix
+    # end
+    table.delete(*idx_rows_to_fix)
+    puts table
   end
 end
 

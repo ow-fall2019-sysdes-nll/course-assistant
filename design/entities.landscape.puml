@@ -191,9 +191,9 @@ PrereqGroups ||--o{ CourseInPrereqGroup
 
 Students ||--|{ FacultyAdvisesStudent
 Students ||--o{ StudentHasHold
-Students ||----|{ StudentHasMinor
-Students ||-----|{ StudentHasMajor
-Students ||------|{ StudentAttendsSession
+Students ||--|{ StudentHasMinor
+Students ||--|{ StudentHasMajor
+Students ||--|{ StudentAttendsSession
 
 Sessions }o--|| Sections
 Sessions ||--o{ StudentAttendsSession
@@ -201,19 +201,19 @@ Sessions ||--o{ StudentAttendsSession
 StudentHasHold }o--|| Holds
 
 Facultys ||--o{ FacultyAdvisesStudent
-Facultys }|----|| Departments
+Facultys }|--|| Departments
 
 Reports }o-|| Researchers 
 
 Departments ||--|{ Majors
-Departments ||---|{ Minors
-Departments ||------o{ Courses
-Departments ||------o{ Enrollments
+Departments ||--|{ Minors
+Departments ||--o{ Courses
+Departments ||--o{ Enrollments
 
-Minors ||---|{ StudentHasMinor
-Majors ||---|{ StudentHasMajor
+Minors ||--|{ StudentHasMinor
+Majors ||--|{ StudentHasMajor
 
-Courses ||---o{ Sections
+Courses ||--o{ Sections
 
 Sections ||--o{ Enrollments
 Sections ||--o{ SectionInPeriod

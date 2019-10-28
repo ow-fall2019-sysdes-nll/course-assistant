@@ -1,0 +1,24 @@
+Select 	CRN 	Subj 	Crse 	Sec 	Cmp 	Cred 	Title 	Days 	Time 	Cap 	Act 	Rem 	Instructor 	Date (MM/DD) 	Location 	Attribute
+NR 	10618 	CS 	1500 	001 	0 	4.000 	Intro to Computer Applications 	TR 	11:20 am-12:50 pm 	25 	14 	11 	Carlos Charles (P) 	08/26-12/20 	NAB 0111 	 
+C 	10620 	CS 	2510 	002 	0 	4.000 	Computer Programming I 	MW 	11:20 am-12:50 pm 	30 	30 	0 	Glenn Dodd (P) 	08/26-12/20 	NAB 2107 	 
+  	  	  	  	  	  	  	  	MW 	01:00 pm-02:00 pm 	  	  	  	Glenn Dodd 	08/26-12/20 	NAB 0109 	 
+NR 	11910 	CS 	2510 	003 	0 	4.000 	Computer Programming I 	TR 	09:40 am-11:10 am 	30 	29 	1 	Mohamed E Khalefa (P) 	08/26-12/20 	NAB 2117 	 
+  	  	  	  	  	  	  	  	TR 	11:20 am-12:20 pm 	  	  	  	Mohamed E Khalefa 	08/26-12/20 	NAB 0109 	 
+C 	10621 	CS 	2511 	001 	0 	4.000 	Computer Programming II 	TR 	11:20 am-12:50 pm 	30 	30 	0 	Tong Yi (P) 	08/26-12/20 	NAB 2123 	 
+  	  	  	  	  	  	  	  	TR 	01:00 pm-02:00 pm 	  	  	  	Tong Yi 	08/26-12/20 	NAB 0109 	 
+NR 	10622 	CS 	2511 	002 	0 	4.000 	Computer Programming II 	MW 	05:30 pm-07:00 pm 	30 	29 	1 	Glenn Dodd (P) 	08/26-12/20 	NAB 3108 	 
+  	  	  	  	  	  	  	  	MW 	07:10 pm-08:10 pm 	  	  	  	Glenn Dodd 	08/26-12/20 	NAB 0109 	 
+NR 	11470 	CS 	3611 	001 	0 	4.000 	Advanced C# 	TR 	05:30 pm-07:00 pm 	25 	18 	7 	Tong Yi (P) 	08/26-12/20 	NAB 0111 	 
+NR 	10802 	CS 	3620 	001 	0 	4.000 	Computer Architecture I 	MW 	01:00 pm-02:30 pm 	25 	14 	11 	Mohamed E Khalefa (P) 	08/26-12/20 	NAB 1103 	 
+NR 	10801 	CS 	3810 	001 	0 	4.000 	Data Structures & Algorithms 	MW 	05:30 pm-07:00 pm 	30 	28 	2 	Mohamed E Khalefa (P) 	08/26-12/20 	NAB 0109 	 
+NR 	11272 	CS 	3911 	001 	0 	4.000 	C++in Object Oriented Design 	MW 	03:50 pm-05:20 pm 	25 	20 	5 	Ashok Basawapatna (P) 	08/26-12/20 	NAB 0111 	 
+  	10623 	CS 	4100 	W01 	0 	4.000 	Technical Communications 	TR 	07:10 pm-08:40 pm 	20 	23 	-3 	Paul Hadrian Shaw (P) 	08/26-12/20 	NAB 2129 	 
+NR 	12486 	CS 	4400 	001 	0 	4.000 	Artificial Intelligence 	TR 	01:00 pm-02:30 pm 	25 	24 	1 	Do Young Park (P) 	08/26-12/20 	NAB 0111 	 
+C 	10624 	CS 	4501 	001 	0 	4.000 	Software Engineering 	TR 	05:30 pm-07:00 pm 	30 	33 	-3 	Do Young Park (P) 	08/26-12/20 	NAB 0109 	 
+C 	10663 	CS 	4550 	001 	0 	4.000 	Database Management Systems 	TR 	07:10 pm-08:40 pm 	30 	33 	-3 	Naresh Gupta (P) 	08/26-12/20 	NAB 2107 	 
+NR 	12154 	CS 	4720 	001 	0 	4.000 	Internet & Web Tech 	MW 	05:30 pm-07:00 pm 	25 	19 	6 	Do Young Park (P) 	08/26-12/20 	NAB 0111 	 
+NR 	11659 	CS 	5620 	001 	0 	2.000 	Computer Science Practicum 	  	TBA 	10 	0 	10 	Ashok Basawapatna (P) 	08/26-12/20 	TBA 	Applied Learning Research
+NR 	10888 	CS 	5710 	001 	0 	4.000 	Computer Networks 	MW 	07:10 pm-08:40 pm 	25 	20 	5 	Ashok Basawapatna (P) 	08/26-12/20 	NAB 0111 	 
+  	10625 	CS 	5910 	001 	0 	4.000 	Systems Design & Implement 	TR 	03:50 pm-05:20 pm 	25 	18 	7 	Naresh Gupta (P) 	08/26-12/20 	NAB 0111 	 
+NR 	12500 	CS 	6010 	G01 	0 	3.000 	Algorithms&Programming Tchnqs 	R 	05:40 pm-07:55 pm 	20 	5 	15 	Ashok Basawapatna (P) 	08/26-12/20 	NAB 2118 	 
+NR 	12503 	CS 	6020 	G01 	0 	3.000 	Intro to Databases 	M 	05:40 pm-07:55 pm 	20 	5 	15 	Naresh Gupta (P) 	08/26-12/20 	NAB 2129 	 
